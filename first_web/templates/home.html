@@ -1,0 +1,77 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="container-fluid" id="intro">
+  <div class="row">
+    <div class="col-sm-6">
+      <p id="poem">
+        बाधाएं आती हैं आएं घिरें प्रलय की घोर घटाएं, पावों के नीचे अंगारे, सिर
+        पर बरसें यदि ज्वालाएं, निज हाथों में हंसते-हंसते, आग लगाकर जलना होगा।
+        कदम मिलाकर चलना होगा।
+      </p>
+    </div>
+    <div class="col-sm-6" style="max-width: 100%; height: auto">
+      <img
+        src="/static/images/sf.jpg"
+        class="img-fluid"
+        alt="parasf"
+        style="height: auto; background-color: black; margin-top: 5px"
+      />
+    </div>
+    <div class="row">
+      <div class="col-sm-md-xl-6">
+        <p id="sanskrit">शौर्यम..दक्षम..युध्धेय..! बलिदान परम धर्म !</p>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-sm-12"></div>
+      <div class="centered" id="corner">MOTIVATION CORNER</div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid" id="intro" style="margin-top: 4px">
+  <div class="row">
+    <div class="col-sm-3">
+      <img
+        src="/static/images/Joginder_SIngh_PVC.jpg"
+        alt=""
+        ,
+        style="width: 100%; height: auto"
+      />
+    </div>
+    <div
+      class="col-sm-9"
+      style="
+        background: linear-gradient(
+          to bottom right,
+          rgb(227, 231, 231),
+          rgb(113, 177, 189)
+        );
+        color: black;
+        font-size: 3vw;
+        margin-bottom: 20px;
+      "
+    >
+      <p style="margin-left: 2px; margin-right: 2px; font-style: italic">
+        <strong
+          >Subedar Joginder Singh was born on 26th September 1921 in Mahakalan
+          village in Moga district of Punjab. Son of Sri Sher Singh Saini and
+          Bibi Krishnan Kaur, Sub Joginder Singh completed his primary education
+          in his village but could not continue his studies further as his
+          parents could not afford it. He joined the British Army on 28 Sep 1936
+          and was recruited into 1 Sikh of the Sikh Regiment.
+          <br />
+          He participated in World War II on Burma front and then also took part
+          in Indo-Pak war of 1947-48 in Srinagar and Indo-China War which took
+          place in 1962.</strong
+        >
+      </p>
+      <a href="{{ url_for('motivation') }}"
+        ><strong style="background: white; color: black">READ</strong></a
+      >
+    </div>
+  </div>
+  <div class="col-sm-6"></div>
+</div>
+
+{% endblock content %}

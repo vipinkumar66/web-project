@@ -1,0 +1,87 @@
+{% extends 'layout.html' %} {% block content %}
+<h1
+  class="display-6"
+  style="
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 8px #111010;
+    animation: fadeIn 5s;
+  "
+>
+  Learn And Grow <br />
+  Together
+</h1>
+<div class="container-fluid" style="margin-top: 40px">
+  <div class="row">
+    <div class="col-3" style="margin-left: 50px; margin-bottom: 10px">
+      <img
+        class="rounded-circle article-img"
+        src="{{url_for('static', filename='profile_images/' + post.author.image_file) }}"
+        alt=""
+        style="width: 100%; height: auto"
+      />
+    </div>
+    <div class="col-sm-8">
+      <article class="media content-section">
+        <div
+          class="media-body"
+          style="
+            background: white;
+          "
+        >
+          <div class="article-metadata">
+            <a
+              class="mr-2"
+              href="{{ url_for('user_posts', username=post.author.username) }}"
+              style="color: rgb(8, 6, 6); font-size: large; font-weight: bolder"
+              >{{ post.author.username }}</a
+            >
+            <p style="color: rgb(231, 16, 16)">
+            {{ post.date_posted.strftime('%Y-%m-%d') }}</p>
+            {% if post.author == current_user %}
+            <div>
+              <a class="btn btn-secondary btn-sm m-1" href="{{ url_for('update_post', post_id=post.id) }}">Update</a>
+              <button type="button" class="btn btn-danger btn-sm m-1" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+            </div>
+            {% endif %}
+          </div>
+          <h2
+            class="display-6"
+            class="article-title"
+            href="#"
+            style="color: rgb(3, 3, 3); margin-left: 8px"
+          >
+            {{ post.title }}
+          </h2>
+          <p
+            class="article-content"
+            style="background-color: white; color: black"
+          >
+          {{ post.content }}
+          </p>
+      </article>
+      <!-- Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel">Delete post?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <form action="{{ url_for('delete_post', post_id=post.id) }}" method="post"><input class="btn btn-danger" type="submit" value="Delete"></form>
+        </div>
+      </div>
+    </div>
+      
+      </div>
+    <div class="col-sm-1"></div>
+  </div>
+</div>
+
+{% endblock content %}

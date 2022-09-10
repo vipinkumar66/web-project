@@ -1,0 +1,62 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="container">
+  <div class="row">
+        <div class="card-body p-4 p-sm-5">
+          <h5 class="card-title text-center mb-5 fw-light fs-5">Credentials to enter the website</h5>
+          <form method="Post" action="">
+            {{ form.hidden_tag() }}
+
+            <div class="form_group">
+              <label for="floatingInputEmail">Email address</label>
+              {% if form.email.erros %}
+                {{ form.email(class="form-control form-control-lg is-invalid ") }}
+                <div class="invalid-feedback">
+                  {% for errors in form.email.errors %}
+                    <span style="color: yellow;">{{ errors }}</span>
+                  {% endfor %}
+                </div>
+              {% else %}
+                {{ form.email(class="form-control form-control-lg") }}
+              {% endif %}
+            </div>
+            
+
+            <hr>
+
+            <div class="form_group">
+              <label for="floatingPassword">Password</label>
+              {% if form.password.erros %}
+                {{ form.password(class="form-control form-control-lg is-invalid ") }}
+                <div class="invalid-feedback">
+                  {% for errors in form.password.errors %}
+                    <span style="color: yellow;">{{ errors }}</span>
+                  {% endfor %}
+                </div>
+              {% else %}
+                {{ form.password(class="form-control form-control-lg") }}
+              {% endif %}
+            </div>
+
+            <div class="form_check">
+              {{ form.remember(class= 'form-check-input') }}
+              {{ form.remember.label(class= 'form-check-label') }}
+            </div>
+
+
+
+            
+            
+
+            <div class="d-grid mb-2">
+              <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Log in</button>
+            </div>
+
+            <a class="d-block text-center mt-2 small" href="{{ url_for('register') }}" style="color: yellow;">Don't have an account? Click here</a>
+
+            <hr class="my-4">
+          </form>
+        </div>
+  </div>
+</div>
+{% endblock content %}
